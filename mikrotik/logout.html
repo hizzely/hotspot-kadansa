@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="pragma" content="no-cache" />
+    <meta http-equiv="expires" content="-1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Hotspot Kadansa</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="http://10.100.20.2/hotspot-data/css/custom.css">
+    <script language="JavaScript">
+        function openLogin() {
+            if (window.name != 'hotspot_logout') return true;
+            open('$(link-login)', '_blank', '');
+            window.close();
+            return false;
+        }
+    </script>
+</head>
+
+<body onload="viewPage()">
+    <!-- HEADER -->
+    <header class="bg-header" id="header"></header>
+
+    <!-- CONTENT WRAPPER -->
+    <div class="container main-wrapper">
+        <div class="row">
+            <!-- Konten Utama -->
+            <div class="col-md-8 col-sm-8 col-xs-12" id="content-main">
+
+            </div>
+
+            <!-- SIDEBAR -->
+            <div class="col-md-4 col-sm-4 col-xs-12 sidebar-wrapper">
+                <!-- login form -->
+                <div id="sidebar-login">
+                    <!--
+                        Dev Message:
+                        Hati-hati mengedit bagian ini, ini adalah bagian tampilan inti untuk melakukan proses logout.
+                    -->
+                    
+                    <div class="card border-secondary mb-3" id="hotspot-form">
+                        <div class="card-header bg-secondary text-white">
+                            <h5>HOTSPOT LOGIN</h5>
+                            <span>Anda harus login untuk dapat mengakses internet.</span>
+                        </div>
+                        <div class="card-body">
+                            $(if error)
+                            <div class="alert alert-danger" role="alert">
+                                $(error)
+                            </div>
+                            $(endif)
+                    
+                            <span>
+                                <strong>Sesi Telah Diakhiri</strong>
+                                <br/>
+                                <br/> Total waktu akses:
+                                <strong>$(uptime)</strong>.
+                                <br/> Total data unduh:
+                                <strong>$(bytes-out-nice)</strong>.
+                                <br/> Total data unggah:
+                                <strong>$(bytes-in-nice).</strong>.
+                    
+                                <br/>
+                                <br/> Ingin login kembali?
+                                <br/>
+                                <br/>
+                            </span>
+                    
+                            <form action="$(link-login)" name="login" onSubmit="return openLogin()">
+                                <input type="hidden" name="dst" value="$(link-orig)" />
+                    
+                                <div class="btn-group">
+                                    <input type="submit" class="btn btn-secondary" value="Login Kembali" />
+                                </div>
+                    
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+                <br/>
+
+                <!-- free widget -->
+                <div id="sidebar-widget"></div>
+                <br/>
+                <br/>
+            </div>
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="hotspot-footer" id="hotspot-footer"></footer>
+
+    <!-- SCRIPT BERAT -->
+    <script src="js/jquery.min.js"></script>
+    <script src="http://10.100.20.2/hotspot-data/contentloader.js"></script>
+</body>
+
+</html>

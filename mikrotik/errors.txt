@@ -1,0 +1,54 @@
+# ==========================================================================
+# Diterjemahkan oleh Fajar Ru (kzofajar@gmail.com) Untuk Hotspot Kadansa
+# Menemukan kesalahan? https://github.com/hizzely/hotspot-kadansa
+# ==========================================================================
+
+# Error internal.
+internal-error = Terdapat error pada sisi internal ($(error-orig))
+
+# Kesalahan pada konfigurasi Hotspot.
+config-error = Terdapat masalah pada konfigurasi Hotspot($(error-orig))
+
+# User me-request halaman Logout/Status tapi belum login.
+not-logged-in = Anda belum login.
+
+# Alokasi IP habis.
+ippool-empty = Gagal mendapatkan Alamat IP (Tidak ada IP tersedia).
+
+# User melakukan login saat Mikrotik dishutdown
+shutting-down = Layanan Hotspot saat ini sedang dimatikan.
+
+# Total Shared User pada sebuah akun sudah mencapai batas.
+user-session-limit = Penggunaan bersama untuk akun ini sudah mencapai batas.
+
+# Total pengguna yang login hotspot mencapai batas yang diperbolehkan lisensi RouterOS.
+license-session-limit = Total login hotspot sudah mencapai batas lisensi (Detail: $(error-orig))
+
+# MAC Login tidak sesuai dengan MAC perangkat user.
+wrong-mac-username = Username ($(username)) salah: MAC Address tidak sesuai.
+
+# Untuk opsi HTTP-CHAP.
+# Pesan muncul ketika User mencoba login tapi Server Hotspot tidak menerima kode enkripsi password.
+# Kemungkinan karena browser tidak mendukung JavaScript.
+chap-missing = CHAP Missing. Coba lagi (mungkin Javascript tidak aktif?)
+
+# Username / Password salah
+invalid-username = Username atau Password salah.
+
+# Jika sebuah akun dibinding ke sebuah MAC Address, login melalui MAC Address lain akan memunculkan pesan ini.
+invalid-mac = Username $(username) tidak diperbolehkan login dari MAC Address ini.
+
+# Ketika User sudah mencapai batas durasi login.
+uptime-limit = Username $(username) telah mencapai batas durasi login.
+
+# Ketika User sudah mencapai batas kuota.
+traffic-limit = Username $(username) telah mencapai batas kuota.
+
+# Server RADIUS tidak merespon / RTO.
+radius-timeout = Server RADIUS tidak merespon.
+
+# Permintaan Otorisasi sudah diminta dan dalam proses, namun Client mengirimkan kembali.
+auth-in-progress = Proses Otorisasi sudah diminta. Mohon tunggu.
+
+# Error RADIUS lain-lain.
+radius-reply = $(error-orig)

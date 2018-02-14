@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="refresh" content="2; url=$(link-redirect)">
+    <meta http-equiv="pragma" content="no-cache">
+    <meta http-equiv="expires" content="-1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Hotspot Redirection</title>
+    <script language="JavaScript">
+        function startClock() {
+            $(if popup == 'true')
+                open('$(link-status)', 'hotspot_status', 'toolbar=0,location=0,directories=0,status=0,menubars=0,resizable=1,width=290,height=200');
+            $(endif)
+            location.href = '$(link-redirect)';
+        }
+    </script>
+    <style>
+        @keyframes muter {
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        @keyframes aniblock {
+            from {
+                top: 0px;
+                animation-timing-function: ease-in;
+            }
+            50% {
+                top: 200px;
+                animation-timing-function: ease-out;
+            }
+            to {
+                top: 0px;
+                animation-timing-function: ease-out;
+            }
+        }
+                
+        .contentblocker {
+            position: fixed;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: #f5f5f5;
+            color: #454545;
+            vertical-align: middle;
+            z-index: 998;
+            font-size: 24px;
+            font-weight: 200;
+        }
+
+        .spinner-loading {
+            display: inline-block;
+            min-height: 35px;
+            width: 35px;
+            border: 4px #54a9b7 solid;
+            border-top: 4px transparent solid;
+            border-right: 4px transparent solid;
+            border-radius: 50%;
+            animation: muter 0.8s infinite linear;
+            margin-right: 10px;
+        }
+
+        .subtext {
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body onLoad="startClock()">
+    <!-- CONTENT BLOCKER WHEN WAITING NETWORK -->
+    <div class="contentblocker">
+        <span class="spinner-loading"></span>
+        <span id="contentblock-loading">Mohon Tunggu...</span>
+    </div>
+</body>
+</html>

@@ -1,0 +1,35 @@
+.bg-header {
+    width: 100%;
+    min-height:250px;
+    position: absolute;
+    background-color: #444955;
+    color: #fff;
+}
+
+.main-wrapper {
+    padding-top: 180px;
+}
+
+.header-logo {
+    width: 86px;
+    height: 96px;
+}
+
+.header-wrapper {
+    position: absolute;
+    margin-left: auto;
+    margin-right: auto;
+    left: 0;
+    right: 0;
+}
+
+.sidebar-wrapper {
+    padding-top: 100px;
+}
+
+.title {
+    border-left: 8px solid #2980b9;
+    padding-left: 10px;
+    padding-top: 4px;
+    padding-bottom: 4px;
+}

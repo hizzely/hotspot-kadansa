@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    $(if refresh-timeout)
+    <meta http-equiv="refresh" content="$(refresh-timeout-secs)"> 
+    $(endif)
+    <meta http-equiv="pragma" content="no-cache" />
+    <meta http-equiv="expires" content="-1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Hotspot Kadansa</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="http://10.100.20.2/hotspot-data/css/custom.css">
+    <script>
+        function openLogout() {
+            if (window.name != 'hotspot_status') return true;
+            open('$(link-logout)', 'hotspot_logout', 'toolbar=0,location=0,directories=0,status=0,menubars=0,resizable=1,width=280,height=250');
+            window.close();
+            return false;
+        }
+    </script>
+</head>
+
+<body onload="viewPage()">
+    <!-- HEADER -->
+    <header class="bg-header" id="header"></header>
+
+    <!-- CONTENT WRAPPER -->
+    <div class="container main-wrapper">
+        <div class="row">
+            <!-- Konten Utama -->
+            <div class="col-md-8 col-sm-8 col-xs-12" id="content-main">
+
+            </div>
+
+            <!-- SIDEBAR -->
+            <div class="col-md-4 col-sm-4 col-xs-12 sidebar-wrapper">
+                <!-- login form -->
+                <div id="sidebar-login">
+                    <!--
+                        Dev Message:
+                        Hati-hati mengedit bagian ini, ini adalah bagian tampilan inti untuk status/post login.
+                    -->
+                    
+                    <div class="card border-secondary mb-3" id="hotspot-form">
+                        <div class="card-header bg-secondary text-white">
+                            <h5>HOTSPOT STATUS</h5>
+                            <span>
+                                $(if login-by == 'trial') Akses Tamu/Trial $(elif login-by != 'mac') Halo, $(username)! $(endif)
+                            </span>
+                        </div>
+                        <div class="card-body">
+                            $(if error)
+                            <div class="alert alert-danger" role="alert">
+                                $(error)
+                            </div>
+                            $(endif)
+                    
+                            <form action="$(link-logout)" name="logout" onSubmit="return openLogout()">
+                                <span>Selamat datang dan selamat menikmati akses Internetnya. Semoga bermanfaat!</span>
+                                <br/>
+                                <br/> Alamat IP:
+                                <strong>$(ip)</strong>
+                                <br/> Data Up/Down:
+                                <strong>$(bytes-in-nice) / $(bytes-out-nice)</strong>
+                                <br/> Durasi Sesi:
+                                <strong>$(uptime)</strong>
+                    
+                                <br/>
+                                <br/>
+                                <div class="btn-group">
+                                    <input type="submit" class="btn btn-danger" value="Akhiri Sesi" />
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+                <br/>
+
+                <!-- free widget -->
+                <div id="sidebar-widget"></div>
+
+                <br/>
+                <br/>
+            </div>
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="hotspot-footer" id="hotspot-footer"></footer>
+
+    <!-- SCRIPT BERAT -->
+    <script src="js/jquery.min.js"></script>
+    <script src="http://10.100.20.2/hotspot-data/contentloader.js"></script>
+</body>
+
+</html>
